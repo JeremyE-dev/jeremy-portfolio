@@ -381,7 +381,7 @@
                     <div class="col-md-10 col-lg-9 m-15px-tb">
                         <div class="contact-form">
                             <p>If you have any questions please do not hesitate to send me a message.</p>
-                            <form id="contact-form" method="POST" action ="process_form.php">
+                            <form id="contact-form" method="POST">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -411,8 +411,8 @@
 <!--onclick="mail_send()"-->
 
                                         <div class="send">
-                                            <button class="px-btn theme" type="submit" form ="contact-form" value="Submit"><span>Contact Jeremy</span> <i class="arrow"></i></button>
-                                           <!--  <button class="px-btn theme" type="button" value="Send"><span>Contact Jeremy</span> <i class="arrow"></i></button> -->
+                                            
+                                           <button class="px-btn theme" onclick="send_mail()" type="button" value="Send"><span>Contact Jeremy</span> <i class="arrow"></i></button>
 
                                         </div>
                                         <span id="suce_message" class="text-success" style="display: none">Message Sent Successfully</span>

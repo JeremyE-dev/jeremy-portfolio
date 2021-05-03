@@ -1,25 +1,29 @@
 <?php
-$name = $_POST['name'];
-$visitor_email = $_POST['email'];
-$message = $_POST['message'];
+$name = $_REQUEST['name'];
+$email = $_REQUEST['email'];
+$subject = $_REQUEST['subject'];
+$message = $_REQUEST['message'];
 
+$headers  = 'MIME-Version: 1.0' . "\r\n";
+$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-$email_from = 'https://jeremye-dev.github.io/jeremy-portfolio/';
+$mail_body = "Name : ".$name."<br>"; 
+$mail_body .= "Email : " . $email . "<br>";
+$mail_body .= "Subject : " . $subject . "<br>";
+$mail_body .= "Message : " . $message . "<br>";
+if(mail("jeremy.eudaly@gmail.com","From: Contact Form Your name",$mail_body,$headers)){
+    $thanks_mail_body = "Hello " . $name ."<br>";
+    
+    $thanks_mail_body .= "Hey! Thanks for your email!<br>";
+    $thanks_mail_body .= "I will get back to you soon.<br>";
+    $thanks_mail_body .= "Thank You,<br>";
+    $thanks_mail_body .= "Your Name.";
 
-$email_subject = "New Form Submission";
-
-$email_body = "User Name: $name.\n". 
-                "User Email: $visitor_email.\n".
-                    "User Message: $message.\n";
-
-$to = "jeremy.eudaly@gmail.com";
-
-$headers = "From: $email_from \r\n";
-
-$headers .= "Reply-To: $visitor_email \r\n";
-
-mail($to,$email_subject,$email_body,$headers);
-
-header("Location: index.html");
-
-?>
+    if(mail($email,"Contact Request Notification Email",$thanks_mail_body,$headers)){
+        echo "1";
+        die();
+    }
+    echo "1";    
+}else{
+    echo "0";
+}
