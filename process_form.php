@@ -27,3 +27,5 @@ if(mail("jeremy.eudaly@gmail.com","From: Contact Form Your name",$mail_body,$hea
 }else{
     echo "0";
 }
+
+?>
